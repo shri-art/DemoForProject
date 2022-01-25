@@ -1,0 +1,89 @@
+#### Imp ###
+To find the exception error:
+serach Event Viewer in windows ---> Application
+
+1)Export to excel report  --> GEN_REPORT_MASTER   table
+
+2)Student Application status page --> FormNO  (ApplicationStatusController.cs)
+
+3)Left side menu of admin project   --> SELECT * FROM `GEN_REPORT_MASTER`
+
+
+4)Grid row length
+Ex:	pageLength : 20,
+	lengthMenu: [[10, 20], [10, 20]],
+
+
+5)Replace for #194121
+$('#StudentList').DataTable({
+            "ajax": {
+                "url": hidUrl,
+                "type": "POST",
+                "data": { firstName: $("#txtFirstName").val().replace("'","`"),
+
+
+6)ApplicationType
+1--unregistered
+2--NextCoursePartTerm
+3--another
+4--repeater(idol)
+
+Admission mode - 3-->1 or 3
+Admission mode - 4-->2
+
+7)To find prn 
+SELECT * FROM OA_STUDENT_APPLICATION 
+LEFT JOIN OA_STUDENT_REGISTRATION ON
+OA_STUDENT_REGISTRATION.`StudentID`= OA_STUDENT_APPLICATION.StudentID
+LEFT JOIN REGDOA_STUDENT_FLATTABLE ON
+REGDOA_STUDENT_FLATTABLE.`PRN_Number`=OA_STUDENT_REGISTRATION.`PRN`
+WHERE OA_STUDENT_APPLICATION.`ApplicationStatus`>1 AND OA_STUDENT_APPLICATION.`CollegeID`=3639 
+AND OA_STUDENT_REGISTRATION.`PRN` IS NOT NULL
+
+
+ListAffliliatedPrograms
+
+8)
+ReservationPage
+ if ($("#divStudentReservation_IsSelfEmployed").is(":visible")) {
+            if (checkValuee == true) {
+                if (confirm("You have elected option 'NO' for the self-employed radio button, if you want to continue, then click on the OK button.") == true) {
+                    if (v.checkValidity() == true)
+                    { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+                    return true;
+                } else {
+                    if (v.checkValidity() == true)
+                    { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+                    return false;
+                }           
+            }
+        }
+
+
+9)LastQual.cshtml
+Add this "ScholarshipCheckboxValid" attribute in HideAttributes for old functionality(multi-checkbox)
+and if we remove this attribute it will work with new functionality(single-checkbox)
+
+10)
+UPDATE OA_STUDENT_APPLICATION 
+SET IsAdmissionPaymentDone= 'Y' 
+WHERE ApplicationID IN (527602,527582,527491,527598,527613,527529,527517,527544,527620,527619,527622,527584,527583)
+
+
+11)append the text from jquery to action for document upload page.
+https://api.jquery.com/append/
+
+12)How to create same table in mysql ?
+SHOW CREATE TABLE  `TableName`  <-- excute this query (TableName) is existing table
+then there will be two col in console as table and Create Table, so do copy the query from create table and execute this query by new table name  
+
+
+https://stackoverflow.com/questions/8181284/mvc-role-based-routing
+https://www.c-sharpcorner.com/UploadFile/ff2f08/custom-route-constraints-in-Asp-Net-mvc-5/
+https://stackoverflow.com/questions/32919876/problems-with-creating-two-routes-which-wont-generate-404-error-in-asp-net-mvc
+https://stackoverflow.com/questions/2246481/routing-with-multiple-parameters-using-asp-net-mvc#:~:text=As%20you%20can%20see%2C%20multiple,(i.e.%20artist%20and%20api_key%20).
+
+CHECK routeName FROM THE ROUTE CONFIG FILE 	to passing the value with the action, controller and routeName
+
+https://stackoverflow.com/questions/50691412/how-to-keep-session-variables-updated-always-in-asp-net-mvc
+https://stackoverflow.com/questions/2126046/set-httpcontext-user-for-the-session
