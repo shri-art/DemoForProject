@@ -1,6 +1,7 @@
 #### Imp ###
 To find the exception error:
 serach Event Viewer in windows ---> Application
+iaslkfjskdjfkdsjfksjf
 
 1)Export to excel report  --> GEN_REPORT_MASTER   table
 
